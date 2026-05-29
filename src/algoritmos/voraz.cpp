@@ -28,6 +28,7 @@ Respuesta roV(const Finca& f) {
 
     // Nota para Juli: Lo que hace es que crea un vector con los indices, para representar 
     // numericamente a cada tablón y poder ordenarlos segun la funcion compararTablones
+    // Otra forma es haciendo una copia de los tablones, también se puede pero se consume el doble de memoria
     vector<int> indices(n);
     for (int i = 0; i < n; i++) {
         indices[i] = i;
