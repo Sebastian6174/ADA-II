@@ -18,7 +18,8 @@ Finca leer_finca(const string& filename) {
 
     Finca f(n);
     for (int i = 0; i < n; ++i) {
-        in >> f[i].ts >> f[i].tr >> f[i].p >> f[i].rp;
+        char comma1, comma2, comma3;
+        in >> f[i].ts >> comma1 >> f[i].tr >> comma2 >> f[i].p >> comma3 >> f[i].rp;
         f[i].id = i;
     }
 
