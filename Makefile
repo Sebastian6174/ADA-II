@@ -59,7 +59,12 @@ test-n30: $(TARGET)
 	@echo "PD N=30: RAM ~12 GiB, CPU muy alto (30+ min posible)..."
 	/usr/bin/time -f "Tiempo: %e s | RAM max: %M KiB" ./$(TARGET) datos/entrada/finca_10_limite_30.txt datos/salida/finca_10_limite_30.txt
 
+ifeq ($(OS),Windows_NT)
 clean:
 	del /S /Q src\*.o 2>nul & del /Q $(TARGET) $(BENCH) $(TEST_ALLOC) 2>nul
+else
+clean:
+	rm -f $(OBJS) $(BENCH_OBJS) $(TARGET) $(BENCH) $(TEST_ALLOC) 2>/dev/null || true
+endif
 
 .PHONY: all benchmark run-benchmark graficas benchmark-all test-n30 clean

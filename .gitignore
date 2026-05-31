@@ -1,10 +1,10 @@
 contexto.md
 criterios_calificacion.md
+.venv
 
 main.tex
 *.o
-main.exe
-benchmark.exe
+*.exe
 datos/salida/benchmark_report.csv
 datos/salida/graficas/
 nul
