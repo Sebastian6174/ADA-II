@@ -54,15 +54,25 @@ int main(int argc, char* argv[]) {
     imprimir_respuesta("Voraz (Greedy)", resV);
 
     // --- Programacion Dinamica ---
-    Respuesta resPD = roPD(finca);
-    imprimir_respuesta("Programacion Dinamica", resPD);
+    Respuesta resPD;
+    if (static_cast<int>(finca.size()) <= LIMITE_PROGRAMACION_DINAMICA) {
+        resPD = roPD(finca);
+        imprimir_respuesta("Programacion Dinamica", resPD);
+        escribir_resultado(archivo_salida, resPD);
 
-    escribir_resultado(archivo_salida, resPD);
-
-    cout << "\n==================================================\n";
-    cout << "[EXITO] Los resultados optimos fueron guardados en '"
-         << archivo_salida << "'.\n";
-    cout << "==================================================\n\n";
+        cout << "\n==================================================\n";
+        cout << "[EXITO] Los resultados optimos fueron guardados en '"
+             << archivo_salida << "'.\n";
+        cout << "==================================================\n\n";
+    } else {
+        cout << "\n>> Resultados: Programacion Dinamica <<\n";
+        cout << "[Omitido: N=" << finca.size()
+             << " supera el limite de memoria O(2^N) (max "
+             << LIMITE_PROGRAMACION_DINAMICA << " tablones)]\n";
+        cout << "\n==================================================\n";
+        cout << "[AVISO] No se escribio archivo de salida (PD no ejecutada).\n";
+        cout << "==================================================\n\n";
+    }
 
     system("pause");
 

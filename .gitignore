@@ -2,3 +2,9 @@ contexto.md
 criterios_calificacion.md
 
 main.tex
+*.o
+main.exe
+benchmark.exe
+datos/salida/benchmark_report.csv
+datos/salida/graficas/
+nul
